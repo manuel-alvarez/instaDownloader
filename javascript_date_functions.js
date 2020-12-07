@@ -32,9 +32,9 @@ function getMedia(type, mediaType, index) {
     var mediaSrc
     if (type == 'story') {
         if (mediaType == 'video') {
-            mediaString = "section.carul div div video source"
+            mediaString = "section div div video source"
         } else {
-            mediaString = "section.carul div div div div img"
+            mediaString = "section div div div div img"
         }
     } else {
         if (mediaType == 'video') {
