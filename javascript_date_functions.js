@@ -32,9 +32,9 @@ function getMedia(type, mediaType, index) {
     var mediaSrc
     if (type == 'story') {
         if (mediaType == 'video') {
-            mediaString = "section div div video source"
+            mediaString = "section.szopg div div video source"
         } else {
-            mediaString = "section div div div div img"
+            mediaString = "section.szopg div div div div img"
         }
     } else {
         if (mediaType == 'video') {
@@ -59,7 +59,11 @@ function getMedia(type, mediaType, index) {
         }
     }
 
-    mediaSrc = (mediaSrc != undefined)? mediaSrc: document.querySelector(mediaString).getAttribute('src')
+    try {
+        mediaSrc = document.querySelector(mediaString).getAttribute('srcset').split(',http')[0]
+    } catch {
+        mediaSrc = (mediaSrc != undefined)? mediaSrc: document.querySelector(mediaString).getAttribute('src')
+    }
     var pattern = /(.+)\/([^\/].*\.(jpg|mp4))(.*)/g
     var mediaParts = new Array()
     let partial
