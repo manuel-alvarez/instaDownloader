@@ -44,7 +44,7 @@ function getMedia(type, mediaType, index) {
         }
         var imageList = document.querySelectorAll(mediaString)
         if (imageList.length > 0) {
-            if (index == undefined) {
+            if (index === undefined) {
                 console.warn('There is a list of images. Please write the index of the image you want to download')
                 return
             } else {
@@ -60,7 +60,7 @@ function getMedia(type, mediaType, index) {
     }
 
     try {
-        mediaSrc = document.querySelector(mediaString).getAttribute('srcset').split(',http')[0]
+        mediaSrc = (mediaSrc != undefined)? mediaSrc: document.querySelector(mediaString).getAttribute('srcset').split(',http')[0]
     } catch {
         mediaSrc = (mediaSrc != undefined)? mediaSrc: document.querySelector(mediaString).getAttribute('src')
     }
