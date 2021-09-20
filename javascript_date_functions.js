@@ -40,7 +40,7 @@ function getMedia(type, mediaType, index) {
         if (mediaType == 'video') {
             mediaString = "article[role=presentation] div div div div ul div div div video"
         } else {
-            mediaString = "article[role=presentation] div div div div ul div div div img"
+            mediaString = 'article[role=presentation] div div div div ul div div div img:not([data-testid="user-avatar"])'
         }
         var imageList = document.querySelectorAll(mediaString)
         if (imageList.length > 0) {
@@ -54,7 +54,8 @@ function getMedia(type, mediaType, index) {
             if (mediaType == 'video') {
                 mediaString = "article[role=presentation] div div div div video"
             } else {
-                mediaString = "article[role=presentation] div div div div img"
+                mediaString = 'article[role=presentation] div div div div img:not([data-testid="user-avatar"])'
+                //mediaString = 'article[role=presentation] div div div div div img:not([data-testid="user-avatar"])'
             }
         }
     }
